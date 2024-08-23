@@ -25,6 +25,7 @@ CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -41,12 +42,3 @@ CREATE TABLE bookings (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Sample data for users
-INSERT INTO users (username, password) VALUES
-('john_doe', MD5('password123')),
-('jane_smith', MD5('password456'));
-
--- Sample data for bookings
-INSERT INTO bookings (user_id, car_id, start_date, end_date, total_amount) VALUES
-(1, 2, '2024-08-25', '2024-08-30', 47500),
-(2, 4, '2024-08-26', '2024-08-28', 17000);
